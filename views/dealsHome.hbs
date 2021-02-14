@@ -1,0 +1,47 @@
+<center>
+    <br />
+    <div class="welcome-msg">
+        <h2>Welcome to DealsCart!</h2>
+        <p>Please click on the product image to purchase.</p>
+    </div>
+</center>
+{{#if task}}
+
+<div class="grid-container">
+    {{#each task}}
+    <div class="card">
+        <div class="prod-div">{{{task}}}</div>
+        <div class="card-body">
+            <div>{{desc}}</div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+{{else}}
+<p>No tasks added yet!</p>
+{{/if}}
+
+<script>
+    function executeQuery() {
+        var domCardsCount = $('.card').length;
+        $.ajax({
+            url: '/updateDeals',
+            success: function (data) {
+                var body = data.substring(data.indexOf("<body>") + 6, data.indexOf("</body>"));
+                var cardTags=$('<div></div>').html(data);
+                var responseCardCount = $('.card', cardTags).length;
+                if(domCardsCount != responseCardCount){
+                    $('.container').html(body);
+                }
+            }
+        });
+        setTimeout(executeQuery, 3000); // you could choose not to continue on failure...
+    }
+
+    $(document).ready(function () {
+        // run the first time; all subsequent calls will take care of themselves
+        setTimeout(executeQuery, 1000);
+        //executeQuery();
+    });
+</script>

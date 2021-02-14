@@ -1,0 +1,86 @@
+<h1 class="mt-4">Dashboard</h1>
+<p class="lead mb-3">Welcome {{ name }}</p>
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Add task
+</button>
+<hr />
+{{#if task}}
+
+
+<div class="grid-container">
+    {{#each task}}
+    <div class="card">
+        <div class="prod-div">{{{task}}}</div>
+        <div class="card-body">
+            <div>{{desc}}</div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+
+{{else}}
+<p>No tasks added yet!</p>
+{{/if}}
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Add your task</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form action="/users/addTask" method="POST" class="needs-validation" novalidate>
+                    <div class="form-group">
+                        <label for="task"></label>
+                        <input type="text" class="form-control" id="task" placeholder="Enter task" name="task" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="desc"></label>
+                        <textarea class="form-control" rows="5" placeholder="Enter description" id="desc" name="desc"
+                            required></textarea>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    {{!-- <div class="form-group">
+                        <label for="desc"></label>
+                        <input type="text" class="form-control" id="desc" placeholder="Enter description" name="desc"
+                            required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div> --}}
+                    <button type="submit" class="btn btn-primary">Submit Task</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Disable form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Get the forms we want to add validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
