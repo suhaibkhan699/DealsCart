@@ -1,3 +1,27 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark navbar-fixed-top">
+    <!-- Brand -->
+    <a class="navbar-brand" href="/">DealsCart</a>
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Shop by Category
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" target="_blank" href="https://amzn.to/2Zn0Lbm">Electronics</a>
+                <a class="dropdown-item" target="_blank" href="https://amzn.to/3as0Jpn">Clothing/Fashion</a>
+                <a class="dropdown-item" target="_blank" href="https://amzn.to/3jP4sQO">Home/Kitchen</a>                
+                <a class="dropdown-item" target="_blank" href="https://amzn.to/2ZgLs48">Books</a>
+                <a class="dropdown-item" target="_blank" href="https://amzn.to/3puChYI">Alexa</a>
+                <a class="dropdown-item" target="_blank" href="https://amzn.to/3u0ZWDs">Car/Motorbike</a>
+                <a class="dropdown-item" target="_blank" href="https://amzn.to/2Nx0ikd">Amazon.in</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+<br><br>
+
 <center>
     <br />
     <div class="welcome-msg">
@@ -7,12 +31,17 @@
 </center>
 {{#if task}}
 
-<div class="grid-container">
+<div class="deals-grid-container">
     {{#each task}}
-    <div class="card">
-        <div class="prod-div">{{{task}}}</div>
-        <div class="card-body">
-            <div>{{desc}}</div>
+    <div class="prod-grid-container">
+        <div class="img-div">
+            <div class="image">{{{task}}}</div>
+        </div>
+        <div class="prod-desc">
+            <div class="header">{{prodName}}
+            </div>
+            <div class="mrp">MRP: ₹{{mrp}}</div>
+            <div>Deal Price: <span class="deal-price">₹{{dealPrice}}</span></div>
         </div>
     </div>
     {{/each}}
@@ -24,14 +53,14 @@
 
 <script>
     function executeQuery() {
-        var domCardsCount = $('.card').length;
+        var domCardsCount = $('.prod-grid-container').length;
         $.ajax({
             url: '/updateDeals',
             success: function (data) {
                 var body = data.substring(data.indexOf("<body>") + 6, data.indexOf("</body>"));
-                var cardTags=$('<div></div>').html(data);
-                var responseCardCount = $('.card', cardTags).length;
-                if(domCardsCount != responseCardCount){
+                var cardTags = $('<div></div>').html(data);
+                var responseCardCount = $('.prod-grid-container', cardTags).length;
+                if (domCardsCount != responseCardCount) {
                     $('.container').html(body);
                 }
             }

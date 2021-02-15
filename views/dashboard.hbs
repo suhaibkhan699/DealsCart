@@ -8,12 +8,15 @@
 {{#if task}}
 
 
-<div class="grid-container">
+<div class="deals-grid-container">
     {{#each task}}
-    <div class="card">
-        <div class="prod-div">{{{task}}}</div>
-        <div class="card-body">
-            <div>{{desc}}</div>
+    <div class="prod-grid-container">
+        <div class="img-div"><div class="image">{{{task}}}</div></div>
+        <div class="prod-desc">
+            <div class="header">{{prodName}}
+            </div>
+            <div class="mrp">MRP: ₹{{mrp}}</div>
+            <div>Deal Price: <span class="deal-price">₹{{dealPrice}}</span></div>
         </div>
     </div>
     {{/each}}
@@ -44,19 +47,26 @@
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="form-group">
-                        <label for="desc"></label>
-                        <textarea class="form-control" rows="5" placeholder="Enter description" id="desc" name="desc"
-                            required></textarea>
+                        <label for="prodName"></label>
+                        <input type="text" class="form-control" id="prodName" placeholder="Enter product name"
+                            name="prodName" required>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
-                    {{!-- <div class="form-group">
-                        <label for="desc"></label>
-                        <input type="text" class="form-control" id="desc" placeholder="Enter description" name="desc"
-                            required>
+                    <div class="form-group">
+                        <label for="mrp"></label>
+                        <input type="number" class="form-control" id="mrp" placeholder="Enter MRP" name="mrp" required>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
-                    </div> --}}
+                    </div>
+                    <div class="form-group">
+                        <label for="dealPrice"></label>
+                        <input type="number" class="form-control" id="dealPrice" placeholder="Enter Deal Price"
+                            name="dealPrice" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Submit Task</button>
                 </form>
             </div>

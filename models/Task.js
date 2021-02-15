@@ -5,8 +5,16 @@ const TaskSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  desc: {
+  prodName: {
     type: String,
+    required: true,
+  },
+  mrp: {
+    type: Number,
+    required: true,
+  },
+  dealPrice: {
+    type: Number,
     required: true,
   },
   user: {
