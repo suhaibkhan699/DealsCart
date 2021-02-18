@@ -24,12 +24,12 @@ const TaskSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now,
-  },
-  expireAt: {
-    type: Date,
-    default: Date.now,
-    expires: 100000,
-  },
+  }
+  // expireAt: {
+  //   type: Date,
+  //   default: Date.now,
+  //   expires: 100000,
+  // },
 });
 
 const Task = mongoose.model("Task", TaskSchema);
