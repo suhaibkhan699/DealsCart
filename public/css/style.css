@@ -92,6 +92,12 @@ body {
   .deals-grid-container {
     grid-template-columns: 1fr;
   }
+  .welcome-msg h2{
+    font-size: 26px;
+  }
+  .welcome-msg p{
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 900px) and (min-width: 600px) {
