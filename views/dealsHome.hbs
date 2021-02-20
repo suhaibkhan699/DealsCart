@@ -11,7 +11,7 @@
             <div class="dropdown-menu">
                 <a class="dropdown-item" target="_blank" href="https://amzn.to/2Zn0Lbm">Electronics</a>
                 <a class="dropdown-item" target="_blank" href="https://amzn.to/3as0Jpn">Clothing/Fashion</a>
-                <a class="dropdown-item" target="_blank" href="https://amzn.to/3jP4sQO">Home/Kitchen</a>                
+                <a class="dropdown-item" target="_blank" href="https://amzn.to/3jP4sQO">Home/Kitchen</a>
                 <a class="dropdown-item" target="_blank" href="https://amzn.to/2ZgLs48">Books</a>
                 <a class="dropdown-item" target="_blank" href="https://amzn.to/3puChYI">Alexa</a>
                 <a class="dropdown-item" target="_blank" href="https://amzn.to/3u0ZWDs">Car/Motorbike</a>
@@ -55,19 +55,32 @@
     function executeQuery() {
         var domCardsCount = $('.prod-grid-container').length;
         $.ajax({
-            url: '/updateDeals',
+            url: '/getStatus',
             success: function (data) {
-                var body = data.substring(data.indexOf("<body>") + 6, data.indexOf("</body>"));
-                var cardTags = $('<div></div>').html(data);
-                var responseCardCount = $('.prod-grid-container', cardTags).length;
-                if (domCardsCount != responseCardCount) {
-                    $('.container').html(body);
+                console.log(data)
+                if (data == 'offer updated') {
+                    updateDOM();
                 }
             }
         });
-        setTimeout(executeQuery, 3000); // you could choose not to continue on failure...
-    }
 
+        setTimeout(executeQuery, 5000); // you could choose not to continue on failure...
+    }
+    function updateDOM() {
+        $.ajax({
+            url: '/updateDeals',
+            success: function (data) {
+                console.log('here')
+                var body = data.substring(data.indexOf("<body>") + 6, data.indexOf("</body>"));
+                var cardTags = $('<div></div>').html(data);
+                var responseCardCount = $('.prod-grid-container', cardTags).length;
+                $('.container').html(body);
+                //if (domCardsCount != responseCardCount) {
+                //    $('.container').html(body);
+                //}
+            }
+        });
+    }
     $(document).ready(function () {
         // run the first time; all subsequent calls will take care of themselves
         setTimeout(executeQuery, 1000);

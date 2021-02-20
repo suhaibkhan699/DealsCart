@@ -56,6 +56,11 @@ body {
   /* max-width: 105px; */
 }
 
+.img-div img{
+  max-width: 110px;
+  max-height: 110px;
+}
+
 .mrp {
   font-size: 12px;
   align-self: center;

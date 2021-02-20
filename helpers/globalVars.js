@@ -1,6 +1,6 @@
 module.exports = {
   topLoginMsg: "",
   registerSuccess: false,
-  offerAdded: false,
+  offerUpdated: false,
   offers: [],
 };

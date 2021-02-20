@@ -84,7 +84,7 @@ router.post("/addTask", ensureAuthenticated, async (req, res) => {
     });
     req.body.user = req.user.id;
     await Task.create(req.body);
-    globalVars.offerAdded = !globalVars.offerAdded;
+    globalVars.offerUpdated = !globalVars.offerUpdated;
     //const tasks = await Task.find({ user: req.user.id }).lean();
     const tasks = await Task.find().sort({ date: "desc" }).lean();
     globalVars.offers = tasks;
