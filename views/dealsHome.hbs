@@ -40,8 +40,12 @@
         <div class="prod-desc">
             <div class="header">{{prodName}}
             </div>
+            {{#if (isNotZero this.mrp)}}
             <div class="mrp">MRP: ₹<del>{{mrp}}</del></div>
+            {{/if}}
+            {{#if (isNotZero this.dealPrice)}}
             <div>Deal Price: <span class="deal-price">₹{{dealPrice}}</span></div>
+            {{/if}}
         </div>
     </div>
     {{/each}}

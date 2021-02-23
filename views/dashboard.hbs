@@ -17,8 +17,8 @@
         <div class="prod-desc">
             <div class="header">{{prodName}}
             </div>
-            <div class="mrp">MRP: ₹<del>{{mrp}}</del></div>
-            <div>Deal Price: <span class="deal-price">₹{{dealPrice}}</span>
+            <div class="mrp">{{#if (isNotZero this.mrp )}}MRP: ₹<del>{{mrp}}</del>{{/if}} </div>
+            <div>{{#if (isNotZero this.dealPrice )}}Deal Price: <span class="deal-price">₹{{dealPrice}}</span>{{/if}}
                 <a href="/deleteDeal/{{_id}}"><i class="fa fa-trash"></i></a>
             </div>
         </div>

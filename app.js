@@ -26,13 +26,14 @@ const {
   getTopLoginMsg,
   isInvalidLogin,
   removeErrMsg,
+  isNotZero,
 } = require("./helpers/hbs");
 
 // handlebars
 app.engine(
   ".hbs",
   exphbs({
-    helpers: { getTopLoginMsg, isInvalidLogin, removeErrMsg },
+    helpers: { getTopLoginMsg, isInvalidLogin, removeErrMsg, isNotZero },
     defaultLayout: "main",
     extname: ".hbs",
   })
@@ -66,10 +67,3 @@ app.get('*', function(req, res){
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, console.log(`Server started on PORT: ${PORT}`));
-
-/* io.on("connection", (socket) => {
-  console.log("user connected: " + socket.id);
-  socket.on('message',(data)=>{
-    console.log('---'+data)
-  })
-}); */

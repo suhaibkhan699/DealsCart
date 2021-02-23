@@ -8,10 +8,14 @@ module.exports = {
     if (globalVars.topLoginMsg.length == 0) {
       return false;
     } else {
-        return true;
+      return true;
     }
   },
   removeErrMsg: function () {
     globalVars.topLoginMsg = "";
+  },
+  isNotZero(value) {
+    if (value == 0) return false;
+    else return true;
   },
 };
