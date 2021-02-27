@@ -61,20 +61,18 @@
         $.ajax({
             url: '/getStatus',
             success: function (data) {
-                console.log(data)
                 if (data == 'offer updated') {
                     updateDOM();
                 }
             }
         });
 
-        setTimeout(executeQuery, 5000); // you could choose not to continue on failure...
+        setTimeout(executeQuery, 20000); // you could choose not to continue on failure...
     }
     function updateDOM() {
         $.ajax({
             url: '/updateDeals',
             success: function (data) {
-                console.log('here')
                 var body = data.substring(data.indexOf("<body>") + 6, data.indexOf("</body>"));
                 var cardTags = $('<div></div>').html(data);
                 var responseCardCount = $('.prod-grid-container', cardTags).length;
@@ -88,6 +86,5 @@
     $(document).ready(function () {
         // run the first time; all subsequent calls will take care of themselves
         setTimeout(executeQuery, 1000);
-        //executeQuery();
     });
 </script>
