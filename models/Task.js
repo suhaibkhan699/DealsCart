@@ -30,7 +30,7 @@ const TaskSchema = new mongoose.Schema({
   //   default: Date.now,
   //   expires: 100000,
   // },
-},{capped:{size: 1024, max: 75,autoIndexId: true}});
+},{capped:{size: 10000000, max: 75, autoIndexId: true}});
 
 const Task = mongoose.model("Task", TaskSchema);
 
