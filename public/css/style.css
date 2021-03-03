@@ -117,7 +117,10 @@ body {
   background-color: red;
   color: white;
   cursor: pointer;
-  padding: 10px;
+  padding-right: 13px;
+  padding-left: 13px;
+  padding-top: 11px;
+  padding-bottom: 10px;
   /* border-radius: 50%; */
 }
 
