@@ -27,6 +27,7 @@
     <div class="welcome-msg">
         <h2>Welcome to DealsCart!</h2>
         <p>Please click on the product image to purchase.</p>
+        <p class="homescreen-msg"><a type="button" class="btn btn-link awesome" id="homescreenBtn" data-toggle="modal" data-target="#homescreenModal">Click here</a> to add DealsCart to your home screen.<hr/></p>
     </div>
 </center>
 {{#if task}}
@@ -52,9 +53,22 @@
 </div>
 
 {{else}}
-<p>No tasks added yet!</p>
+<p>No Deal(s) added yet!</p>
 {{/if}}
 
+<!-- The Modal -->
+<div class="modal fade" id="homescreenModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <br>
+                <p><b>Step 1: </b>Tap the menu icon (3 dots, <i class="fa fa-ellipsis-v" aria-hidden="true"></i> in upper right-hand corner) of the browser window.</p>
+                <p><b>Step 2: </b>Tap on <b>Add to homescreen</b>.</p>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     function executeQuery() {
         var domCardsCount = $('.prod-grid-container').length;
