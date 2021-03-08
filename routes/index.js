@@ -6,7 +6,7 @@ const globalVars = require("../helpers/globalVars");
 
 // Welcome Page
 router.get("/", forwardAuthenticated, async (req, res) => {
-  var tasks = await Task.find().sort({ date: "desc" }).lean();
+  var tasks = await Task.find().sort({ date: "desc" }).limit(84).lean();
   globalVars.offers = tasks;
   res.render("dealsHome", {
     task: tasks,
