@@ -3,21 +3,8 @@
     <a class="navbar-brand" href="/">DealsCart</a>
     <!-- Links -->
     <ul class="navbar-nav">
-        <!-- Dropdown -->
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                Shop by Category
-            </a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" target="_blank" href="https://amzn.to/2Zn0Lbm">Electronics</a>
-                <a class="dropdown-item" target="_blank" href="https://amzn.to/3as0Jpn">Clothing/Fashion</a>
-                <a class="dropdown-item" target="_blank" href="https://amzn.to/3jP4sQO">Home/Kitchen</a>
-                <a class="dropdown-item" target="_blank" href="https://amzn.to/2ZgLs48">Books</a>
-                <a class="dropdown-item" target="_blank" href="https://amzn.to/3puChYI">Alexa</a>
-                <a class="dropdown-item" target="_blank" href="https://amzn.to/3u0ZWDs">Car/Motorbike</a>
-                <a class="dropdown-item" target="_blank" href="https://amzn.to/2Nx0ikd">Amazon.in</a>
-            </div>
-        </li>
+        <a type="button" class="btn btn-link deal-of-the-day" data-toggle="modal" data-target="#dealOftheDayModal">Deal
+            of the Day</a>
     </ul>
 </nav>
 <br><br>
@@ -27,7 +14,10 @@
     <div class="welcome-msg">
         <h2>Welcome to DealsCart</h2>
         <p>Please click on the product image to purchase.</p>
-        <p class="homescreen-msg"><a type="button" class="btn btn-link awesome" id="homescreenBtn" data-toggle="modal" data-target="#homescreenModal">Click here</a> to add DealsCart to your home screen.<hr/></p>
+        <p class="homescreen-msg"><a type="button" class="btn btn-link awesome" id="homescreenBtn" data-toggle="modal"
+                data-target="#homescreenModal">Click here</a> to add DealsCart to your home screen.
+            <hr />
+        </p>
     </div>
 </center>
 {{#if task}}
@@ -61,10 +51,61 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="close modal-close-btn" data-dismiss="modal">&times;</button>
                 <br>
-                <p><b>Step 1: </b>Tap the menu icon (3 dots, <i class="fa fa-ellipsis-v" aria-hidden="true"></i> in upper right-hand corner) of the browser window.</p>
+                <p><b>Step 1: </b>Tap the menu icon (3 dots, <i class="fa fa-ellipsis-v" aria-hidden="true"></i> in
+                    upper right-hand corner) of the browser window.</p>
                 <p><b>Step 2: </b>Tap on <b>Add to Home screen</b>.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- The Deal of the Day Modal -->
+<div class="modal fade" id="dealOftheDayModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+
+                <button type="button" class="close modal-close-btn" data-dismiss="modal">&times;</button>
+                <br><br>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td><a class="daily-deal" href="https://amzn.to/3bzJZg9" target="_blank">Min 60% off on Mens
+                                    Sports
+                                    Shoes</a></td>
+                        </tr>
+                        <tr>
+                            <td><a class="daily-deal" href="https://amzn.to/3v9xyj0" target="_blank">Up to 30% off on
+                                    Kitchen
+                                    Appliances</a></td>
+                        </tr>
+                        <tr>
+                            <td><a class="daily-deal" href="https://amzn.to/3qzASAv" target="_blank">Up To 40% Off On
+                                    Healthy
+                                    Foods</a></td>
+                        </tr>
+                        <tr>
+                            <td><a class="daily-deal" href="https://amzn.to/3l3u2BY" target="_blank">Upto 40% off on
+                                    Sports
+                                    Nutrition</a></td>
+                        </tr>
+                        <tr>
+                            <td><a class="daily-deal" href="https://amzn.to/3rBpx4h" target="_blank">Upto 30% Off on
+                                    Superfoods</a></td>
+                        </tr>
+                        <tr>
+                            <td><a class="daily-deal" href="https://amzn.to/30v9M2L" target="_blank">Upto 40% off on
+                                    Fossil, Titan & more
+                                    watches</a></td>
+                        </tr>
+                        <tr>
+                            <td><a class="daily-deal" href="https://amzn.to/38uqZhd" target="_blank">Flat 15% Off On
+                                    Cadbury Gift
+                                    Pack</a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

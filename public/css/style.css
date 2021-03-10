@@ -178,9 +178,21 @@ body {
     color: #f1c40f;
   }
   90% {
-    color: #2980b9;
+    color: #84929b;
   }
   100% {
     color: pink;
   }
+}
+
+.deal-of-the-day {
+  color: white;
+}
+.daily-deal {
+  color: blue;
+  /* text-decoration: underline; */
+}
+.modal-close-btn {
+  color: red;
+  opacity: 1 !important;
 }
