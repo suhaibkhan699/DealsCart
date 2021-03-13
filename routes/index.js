@@ -47,7 +47,7 @@ router.get("/getStatus", forwardAuthenticated, async (req, res) => {
 // Dashboard
 router.get("/dashboard", ensureAuthenticated, async (req, res) => {
   const { id, name } = req.user;
-  const dashboardTasks = await Task.find().sort({ date: "desc" }).lean();
+  const dashboardTasks = await Task.find().sort({ date: "desc" }).limit(5).lean();
 
   globalVars.offers = dashboardTasks;
 
