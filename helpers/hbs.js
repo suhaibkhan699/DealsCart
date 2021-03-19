@@ -20,6 +20,7 @@ module.exports = {
     else return true;
   },
   formatDate: function (date, format) {
+    moment.tz.setDefault();
     return moment(date).format(format);
   },
 };
