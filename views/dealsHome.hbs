@@ -14,7 +14,7 @@
     <div class="welcome-msg">
         {{!-- <h2>Welcome to DealsCart</h2> --}}
         <p class="first-line">Grab amazing deals and offers on a wide range of products!
-            Please click on product's image to proceed with your purchase.
+            Please click on product's image to proceed with your purchase on Amazon.
         </p>
         <p class="homescreen-msg"><a type="button" class="btn btn-link awesome" id="homescreenBtn" data-toggle="modal"
                 data-target="#homescreenModal">Click here</a> to add DealsCart to your home screen.
@@ -38,6 +38,7 @@
             {{/if}}
             {{#if (isNotZero this.dealPrice)}}
             <div>Deal Price: <span class="deal-price">₹{{dealPrice}}</span></div>
+            <span class="deal-date">(as of {{formatDate this.date 'MMMM Do YYYY, h:mm a'}} - <a type="button" id="dealDateBtn" data-toggle="modal" data-target="#dealDateModal">More info</a>)</span>
             {{/if}}
         </div>
     </div>
@@ -45,11 +46,8 @@
 </div>
 <hr/>
 <div class="privacy-policy">
-<b>Disclaimer:</b> This website is <b>not</b> a part of Amazon website or Amazon Inc. Additionally, this website is NOT endorsed by Amazon in any way. AMAZON is a trademark of Amazon Inc. This is an affiliate website with Amazon.
-<br/>
-<b>Please note:</b> Actual price of the product may vary from Deal Price due to the following reasons:<br>
-1. Deal/Offer is over for that particular product.<br>
-2. Product is not longer available.
+<b>Disclaimer:</b> dealscart.in is a participant in the Amazon Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to amazon.in. <br>
+ This website is <b>not</b> a part of Amazon website or Amazon Inc. Additionally, this website is NOT endorsed by Amazon in any way. AMAZON is a trademark of Amazon Inc. This is an affiliate website with Amazon.
 <br/>
 <b>Privacy Policy:</b> Your contact details, email or phone number will <b>not</b> be stored in our website's database and you will not be shown with any Ads post visiting our webiste related to http://www.dealscart.in.
 <br/>
@@ -60,6 +58,17 @@ We never ask for your personal details in any form and We don't share any person
 <p>No Deal(s) added yet!</p>
 {{/if}}
 
+<div class="modal fade" id="dealDateModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close modal-close-btn" data-dismiss="modal">&times;</button>
+                <br>
+                <p>Product prices and availability are accurate as of the date/time indicated and are subject to change. Any price and availability information displayed on [relevant Amazon Site(s), as applicable] at the time of purchase will apply to the purchase of this product.</p>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- The Modal -->
 <div class="modal fade" id="homescreenModal">
     <div class="modal-dialog modal-dialog-centered">

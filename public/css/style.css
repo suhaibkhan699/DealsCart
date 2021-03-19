@@ -3,9 +3,6 @@ body {
   font-family: "ABeeZee";
 }
 
-.welcome-msg .first-line {
-  text-align: justify;
-}
 .prod-grid-container {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -38,7 +35,7 @@ body {
 .prod-desc {
   display: grid;
   grid-template-rows: 2fr 1fr 1fr;
-  grid-gap: 5px;
+  /* grid-gap: 5px; */
   padding: 5px;
 }
 
@@ -110,6 +107,9 @@ body {
   .homescreen-msg {
     display: block;
   }
+  .welcome-msg .first-line {
+    text-align: justify;
+  }
 }
 
 @media screen and (max-width: 900px) and (min-width: 600px) {
@@ -118,6 +118,9 @@ body {
   }
   .homescreen-msg {
     display: block;
+  }
+  .welcome-msg .first-line {
+    text-align: justify;
   }
 }
 #myBtn {
@@ -199,4 +202,11 @@ body {
 .modal-close-btn {
   color: red;
   opacity: 1 !important;
+}
+.prod-desc .deal-date {
+  font-size: 12px;
+  margin-top: -7px;
+}
+#dealDateBtn{
+  color: #002db3;
 }
