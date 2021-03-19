@@ -1,5 +1,5 @@
 const globalVars = require("../helpers/globalVars");
-const moment = require("moment-timezone");
+const moment = require("moment");
 
 module.exports = {
   getTopLoginMsg: function () {
@@ -20,7 +20,6 @@ module.exports = {
     else return true;
   },
   formatDate: function (date, format) {
-    moment.tz.setDefault();
     return moment(date).format(format);
   },
 };
