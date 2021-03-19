@@ -1,5 +1,5 @@
 const globalVars = require("../helpers/globalVars");
-const moment = require("moment");
+const moment = require("moment-timezone");
 
 module.exports = {
   getTopLoginMsg: function () {
